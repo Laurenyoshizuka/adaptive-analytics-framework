@@ -1,0 +1,20 @@
+# .streamlit/config.toml
+
+# Custom theme params
+[theme]
+primaryColor = "#F39C12"
+backgroundColor = "#2C3E50"
+secondaryBackgroundColor = "#34495E"
+textColor = "#ECF0F1"
+font = "sans serif"
+
+# Set the server options
+[server]
+headless = true
+port = 8501
+enableCORS = false
+enableWebsocketCompression = false
+
+# Configure logging
+[logger]
+level = "debug"
