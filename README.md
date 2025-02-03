@@ -19,12 +19,3 @@ A flexible, context-aware data analytics tool for various input types.
 1. Clone the repository
 2. Install Poetry: `pip install poetry`
 3. Install dependencies: `poetry install`
-
-### Running the Application
-`poetry run start`
-
-### Testing
-`poetry run pytest`# adaptive-analytics-framework
-# adaptive-analytics-framework-app
-# adaptive-analytics-framework-app
-# adaptive-analytics-framework-app
