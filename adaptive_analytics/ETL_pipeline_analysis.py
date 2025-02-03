@@ -9,12 +9,11 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import glob
-from dotenv import load_dotenv
-load_dotenv()  
-BASE_DIR = os.getenv("BASE_DIR")
-DBT_PROJECT_PATH = os.getenv("DBT_PROJECT_PATH")
-DB_FILE = os.getenv("DB_FILE")
-DBT_PROFILES_PATH = os.getenv("DBT_PROFILES_PATH")
+
+BASE_DIR = st.secrets["BASE_DIR"]
+DBT_PROJECT_PATH = st.secrets["DBT_PROJECT_PATH"]
+DB_FILE = st.secrets["DB_FILE"]
+DBT_PROFILES_PATH = st.secrets["DBT_PROFILES_PATH"]
 
 
 @task
