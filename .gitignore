@@ -7,9 +7,4 @@ __pycache__/
 *.pyc
 *.pyo
 *.swp
-<<<<<<< HEAD
-*.yml
 adaptive_analytics/secrets.toml
-=======
-adaptive_analytics/secrets.toml
->>>>>>> 169ea9f0691239fce9ef8c797b775573c14f1204

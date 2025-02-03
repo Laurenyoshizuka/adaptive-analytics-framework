@@ -9,17 +9,12 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import glob
-<<<<<<< HEAD
-=======
 import yaml 
->>>>>>> 169ea9f0691239fce9ef8c797b775573c14f1204
 
 BASE_DIR = st.secrets["BASE_DIR"]
 DBT_PROJECT_PATH = st.secrets["DBT_PROJECT_PATH"]
 DB_FILE = st.secrets["DB_FILE"]
 DBT_PROFILES_PATH = st.secrets["DBT_PROFILES_PATH"]
-<<<<<<< HEAD
-=======
 USER_ID = st.secrets["USER_ID"]
 
 os.makedirs(DBT_PROFILES_PATH, exist_ok=True)
@@ -43,7 +38,6 @@ dbt_profile = {
 }
 with open(profiles_path, "w") as file:
     yaml.dump(dbt_profile, file, default_flow_style=False)
->>>>>>> 169ea9f0691239fce9ef8c797b775573c14f1204
 
 
 @task
