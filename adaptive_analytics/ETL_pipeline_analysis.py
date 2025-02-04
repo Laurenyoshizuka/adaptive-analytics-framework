@@ -40,6 +40,7 @@ with open(profiles_path, "w") as file:
     yaml.dump(dbt_profile, file, default_flow_style=False)
 
 
+
 @task
 def download_file_from_url(url: str) -> dict:
     file_path = 'sample_superstore.xls'
