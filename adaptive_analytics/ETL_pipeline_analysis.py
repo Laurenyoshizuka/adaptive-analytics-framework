@@ -3,7 +3,7 @@ import os
 import requests
 import pandas as pd
 import sqlite3
-from prefect import Client
+from prefect.client import Client
 from prefect import flow, task
 from prefect_dbt.cli.commands import DbtCoreOperation
 import streamlit as st
