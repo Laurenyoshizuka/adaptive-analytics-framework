@@ -3,7 +3,7 @@ import os
 import requests
 import pandas as pd
 import sqlite3
-from prefect.client import Client
+from prefect import get_client
 from prefect import flow, task
 from prefect_dbt.cli.commands import DbtCoreOperation
 import streamlit as st
@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 import glob
 import yaml 
 
-client = Client()
+client = get_client()
 BASE_DIR = st.secrets["BASE_DIR"]
 DBT_PROJECT_PATH = st.secrets["DBT_PROJECT_PATH"]
 DB_FILE = st.secrets["DB_FILE"]
