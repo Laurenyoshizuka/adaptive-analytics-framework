@@ -9,12 +9,35 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import glob
-from dotenv import load_dotenv
-load_dotenv()  
-BASE_DIR = os.getenv("BASE_DIR")
-DBT_PROJECT_PATH = os.getenv("DBT_PROJECT_PATH")
-DB_FILE = os.getenv("DB_FILE")
-DBT_PROFILES_PATH = os.getenv("DBT_PROFILES_PATH")
+import yaml 
+
+BASE_DIR = st.secrets["BASE_DIR"]
+DBT_PROJECT_PATH = st.secrets["DBT_PROJECT_PATH"]
+DB_FILE = st.secrets["DB_FILE"]
+DBT_PROFILES_PATH = st.secrets["DBT_PROFILES_PATH"]
+USER_ID = st.secrets["USER_ID"]
+
+os.makedirs(DBT_PROFILES_PATH, exist_ok=True)
+profiles_path = os.path.join(DBT_PROFILES_PATH, "profiles.yml")
+dbt_profile = {
+    "sqlite_profile": {
+        "target": "dev",
+        "outputs": {
+            "dev": {
+                "type": "sqlite",
+                "threads": 1,
+                "database": "sample_superstore.db", 
+                "schema": "main",
+                "schemas_and_paths": {
+                    "main": DB_FILE
+                },
+                "schema_directory": DB_FILE
+            }
+        }
+    }
+}
+with open(profiles_path, "w") as file:
+    yaml.dump(dbt_profile, file, default_flow_style=False)
 
 
 @task
@@ -310,16 +333,6 @@ def process_and_visualize_data(url: str):
     return df
 
 def delete_xls_files():
-    """Deletes all .xls files in the entire project directory."""
-    # Recursively search for .xls files in the project
-    xls_files = glob.glob(os.path.join(os.getcwd(), '**', '*.xls'), recursive=True)
-
-    if not xls_files:
-        print("No .xls files found in the project.")
-    
-    for file in xls_files:
-        try:
-            os.remove(file)
-            print(f"Deleted: {file}")
-        except Exception as e:
-            print(f"Error deleting {file}: {e}")
+    """Deletes all .xls files in the working directory."""
+    for file in glob.glob("*.xls"):
+        os.remove(file)

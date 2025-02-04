@@ -1,0 +1,16 @@
+
+name: 'superstore_project'
+version: '1.0.0'
+config-version: 2
+
+profile: 'sqlite_profile'
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+models:
+  superstore_project:
+    +materialized: table
+    

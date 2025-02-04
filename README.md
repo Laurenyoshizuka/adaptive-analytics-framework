@@ -2,6 +2,7 @@
 
 ## Overview
 A flexible, context-aware data analytics tool for various input types.
+The application is available at https://adaptive-analytics-framework-apsmic7w6fwphnexgpunjv.streamlit.app
 
 ## Features
 - Dynamic data type detection
