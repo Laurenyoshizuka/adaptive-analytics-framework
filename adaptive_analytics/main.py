@@ -51,16 +51,25 @@ def main():
                     3. Builds a data model using dbt
                     4. Initializes a dashboard with key performance indicator (KPI) insights
 
-                    📖 Author
+                    📖 Author:
+                    
                     This project was developed by Lauren Yoshizuka (laurenyoshizuka@gmail.com)—an enthusiast in advanced analytics & data science. Feel free to reach out for collaboration, questions, or further inquiries!
                     """)
     
     data_option = st.radio(
         "Choose the data source", 
-        options=["Upload Your Own Data", "Use Sample Store Data"]
+        options=["Use Sample Store Data", "Upload Your Own Data"]
         )
 
-    if data_option == "Upload Your Own Data":
+    if data_option == "Use Sample Store Data":
+        try:
+            with st.spinner('Processing sample store data...'):
+                df = process_sample_data()
+
+        except Exception as e:
+            st.error(f"Error processing sample data: {e}")
+    
+    elif data_option == "Upload Your Own Data":
         uploaded_file = st.file_uploader("Upload Data File", type=['csv', 'xls', 'json'])
         
         if uploaded_file is not None:
@@ -79,14 +88,6 @@ def main():
             except Exception as e:
                 st.error(f"Error processing uploaded data: {e}")
     
-    elif data_option == "Use Sample Store Data":
-        try:
-            with st.spinner('Processing sample store data...'):
-                df = process_sample_data()
-
-        except Exception as e:
-            st.error(f"Error processing sample data: {e}")
-
 def display_insights(context_report, insights, insights_generator):
     """Displays the insights and context report in Streamlit"""
     st.subheader("Data Detection")
