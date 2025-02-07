@@ -52,7 +52,7 @@ def main():
                     4. Initializes a dashboard with key performance indicator (KPI) insights
 
                     📖 Author:
-                    
+
                     This project was developed by Lauren Yoshizuka (laurenyoshizuka@gmail.com)—an enthusiast in advanced analytics & data science. Feel free to reach out for collaboration, questions, or further inquiries!
                     """)
     
@@ -87,7 +87,8 @@ def main():
 
             except Exception as e:
                 st.error(f"Error processing uploaded data: {e}")
-    
+
+@st.cache_data(ttl=3600)
 def display_insights(context_report, insights, insights_generator):
     """Displays the insights and context report in Streamlit"""
     st.subheader("Data Detection")

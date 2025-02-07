@@ -11,6 +11,7 @@ class DataType(Enum):
     NUMERICAL = auto()
     MIXED = auto()
 
+@st.cache_data(ttl=3600)
 class DataProcessor:
     def __init__(self, dataframe: pd.DataFrame):
         logging.basicConfig(level=logging.INFO)
