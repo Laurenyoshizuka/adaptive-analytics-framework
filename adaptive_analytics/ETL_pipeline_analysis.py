@@ -18,6 +18,7 @@ DBT_PROJECT_PATH = st.secrets["DBT_PROJECT_PATH"]
 DB_FILE = st.secrets["DB_FILE"]
 DBT_PROFILES_PATH = st.secrets["DBT_PROFILES_PATH"]
 USER_ID = st.secrets["USER_ID"]
+PREFECT_API_URL = st.secrets["PREFECT_API_URL"]
 
 os.makedirs(DBT_PROFILES_PATH, exist_ok=True)
 profiles_path = os.path.join(DBT_PROFILES_PATH, "profiles.yml")
