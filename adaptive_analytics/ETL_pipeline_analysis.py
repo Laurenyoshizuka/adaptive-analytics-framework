@@ -13,7 +13,7 @@ import glob
 import yaml 
 import prefect
 
-prefect_api_key = st.secrets["PREFECT"]["API_KEY"]
+prefect_api_key = st.secrets["PREFECT_API_KEY"]
 client = get_client(api_key=prefect_api_key)
 
 
