@@ -14,8 +14,8 @@ import yaml
 import prefect
 
 prefect_api_key = st.secrets["PREFECT_API_KEY"]
-client = get_client(api_key=prefect_api_key)
-
+os.environ["PREFECT_API_KEY"] = prefect_api_key
+client = get_client()
 
 # client = get_client()
 BASE_DIR = st.secrets["BASE_DIR"]
