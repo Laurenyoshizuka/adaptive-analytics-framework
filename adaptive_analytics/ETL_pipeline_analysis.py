@@ -12,10 +12,9 @@ import plotly.graph_objects as go
 import glob
 import yaml 
 import prefect
-from prefect import Client
 
 prefect_api_key = st.secrets["PREFECT"]["API_KEY"]
-client = Client(api_key=prefect_api_key)
+client = get_client(api_key=prefect_api_key)
 
 
 # client = get_client()
