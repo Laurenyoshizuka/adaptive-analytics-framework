@@ -11,14 +11,21 @@ import plotly.express as px
 import plotly.graph_objects as go
 import glob
 import yaml 
+import prefect
+from prefect.client import Client
 
-client = get_client()
+prefect_api_key = st.secrets["PREFECT"]["API_KEY"]
+client = Client(api_key=prefect_api_key)
+
+
+# client = get_client()
 BASE_DIR = st.secrets["BASE_DIR"]
 DBT_PROJECT_PATH = st.secrets["DBT_PROJECT_PATH"]
 DB_FILE = st.secrets["DB_FILE"]
 DBT_PROFILES_PATH = st.secrets["DBT_PROFILES_PATH"]
 USER_ID = st.secrets["USER_ID"]
 PREFECT_API_URL = st.secrets["PREFECT_API_URL"]
+
 
 os.makedirs(DBT_PROFILES_PATH, exist_ok=True)
 profiles_path = os.path.join(DBT_PROFILES_PATH, "profiles.yml")
